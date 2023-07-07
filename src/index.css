@@ -1,0 +1,75 @@
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+}
+
+.heroImgContainer {
+  height: 100%;
+  width: 100%;
+}
+.heroImg {
+  height: 100%;
+  width: 100%;
+}
+
+.introText {
+  padding: 10px;
+  line-height: 2rem;
+}
+
+.animalsContainer {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+}
+.animalImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  max-height: 500px;
+}
+
+button {
+  margin: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 1.5rem;
+  }
+
+  .animalImgOnList {
+    height: 100%;
+    width: 100%;
+  }
+  .animalImg {
+    height: 75%;
+    width: 75%;
+    max-height: 700px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+}
