@@ -7,16 +7,16 @@ export const Home = () => {
       <div className="homePage">
         <Navbar></Navbar>
         <main>
-          <h1>Välkommen Till DjurParken!</h1>
           <div className="heroImgContainer">
             <img
               src={introImg}
-              alt="tiger walking towards on green leaf plant during daytime"
+              alt="a tiger looking through a leafy area"
               className="heroImg"
             ></img>
           </div>
           <section className="introText">
-            <h3>Välkommen till vår djurpark! </h3>
+            <h1>Välkommen Till DjurParken!</h1>
+
             <p>
               Här kan du vandra genom olika habitat och se allt från
               majestätiska lejon och elefanter till söta lemurer och färgglada
