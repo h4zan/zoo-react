@@ -1,6 +1,6 @@
-import { Navbar } from '../components/Navbar';
-import introImg from '../assets/joshua-lee-7nKv6HMsNEc-unsplash.jpg';
-
+import { Navbar } from '../../components/Navbar/Navbar';
+import introImg from '../../assets/joshua-lee-7nKv6HMsNEc-unsplash.jpg';
+import './Home.css';
 export const Home = () => {
   return (
     <>

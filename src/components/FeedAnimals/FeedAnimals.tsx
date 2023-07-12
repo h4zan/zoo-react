@@ -1,4 +1,5 @@
-import { IAnimal } from '../models/IAnimal';
+import { IAnimal } from '../../models/IAnimal';
+import './FeedAnimals.css';
 
 export const feedAnimals = (animalName: string) => {
   const lsAnimals = localStorage.getItem('theAnimals');

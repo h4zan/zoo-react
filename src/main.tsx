@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Error } from './pages/Error';
-import { Home } from './pages/Home';
-import { Animals } from './pages/Animals';
-import { ViewAnimal } from './pages/ViewAnimal';
+import { Error } from './pages/Error/Error';
+import { Home } from './pages/Home/Home';
+import { Animals } from './pages/Animals/Animals';
+import { ViewAnimal } from './pages/ViewAnimal/ViewAnimal';
 import { animalLoader } from './loaders/animalLoader';
 
 const root = ReactDOM.createRoot(

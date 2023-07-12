@@ -1,7 +1,8 @@
 import { Link, useLoaderData } from 'react-router-dom';
-import { Navbar } from '../components/Navbar';
-import { Loader } from '../loaders/animalLoader';
-import errorImg from '../assets/errorImg.jpg';
+import { Navbar } from '../../components/Navbar/Navbar';
+import { Loader } from '../../loaders/animalLoader';
+import errorImg from '../../assets/errorImg.jpg';
+import './Animals.css';
 
 export const Animals = () => {
   const { animals } = useLoaderData() as Loader;
@@ -11,11 +12,13 @@ export const Animals = () => {
       <div className="animalsListPage">
         <Navbar></Navbar>
 
-        <h2>Här visas alla djur som finns på vår anläggning. </h2>
-        <p>
-          Vår samling består av djur från hela världen och vi är stolta över att
-          kunna ge våra besökare möjlighet att uppleva dem på nära håll.
-        </p>
+        <div className="animalsIntro">
+          <h4>Här visas alla djur som finns på vår anläggning. </h4>
+          <p>
+            Vår samling består av djur från hela världen och vi är stolta över
+            att kunna ge våra besökare möjlighet att uppleva dem på nära håll.
+          </p>
+        </div>
         <div className="animalsContainer">
           {animals.map((animal) => {
             return (

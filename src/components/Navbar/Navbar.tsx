@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/DjurParken.jpg';
+import logo from '../../assets/DjurParken.jpg';
+import './Navbar.css';
 
 export const Navbar = () => {
   return (
-    <header>
-      <nav>
+    <header className="headerHome">
+      <nav className="navHome">
         <Link to="/" className="logoWrapper">
           <img
             src={logo}

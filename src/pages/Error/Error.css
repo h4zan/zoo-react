@@ -1,0 +1,19 @@
+.errorPageInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorImgContainer {
+  width: 275px;
+  height: 250px;
+  object-fit: cover;
+  display: inline-flex;
+}
+.errorImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  max-height: 500px;
+}
