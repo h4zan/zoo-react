@@ -11,8 +11,18 @@
 .drumstickBite {
   color: green;
 }
-.hungry {
+.paw {
   color: brown;
+}
+@media only screen and (min-width: 786px) {
+  .animalPageImg {
+    width: 70%;
+    height: 70%;
+  }
+
+  .animalDescription {
+    padding: 2.5rem;
+  }
 }
 
 @media only screen and (min-width: 1024px) {

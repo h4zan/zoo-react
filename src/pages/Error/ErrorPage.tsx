@@ -1,9 +1,9 @@
-import './Error.css';
+import './ErrorPage.css';
 import errorImg from '../../assets/squirrel-g1f489203a_1280.png';
 
 import { Navbar } from '../../components/Navbar/Navbar';
 
-export const Error = () => {
+export const ErrorPage = () => {
   return (
     <>
       <div className="ErrorPage">

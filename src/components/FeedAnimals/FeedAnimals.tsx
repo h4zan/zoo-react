@@ -1,5 +1,4 @@
 import { IAnimal } from '../../models/IAnimal';
-import './FeedAnimals.css';
 
 export const feedAnimals = (animalName: string) => {
   const lsAnimals = localStorage.getItem('theAnimals');
@@ -9,7 +8,12 @@ export const feedAnimals = (animalName: string) => {
     parseAnimals.forEach((animal) => {
       if (animal.name === animalName) {
         animal.isFed = true;
-        animal.lastFed = new Date().toLocaleString();
+        const currentDate = new Date().toLocaleString();
+        if (currentDate !== 'Invalid Date') {
+          animal.lastFed = currentDate;
+        } else {
+          animal.lastFed = '';
+        }
       }
     });
 

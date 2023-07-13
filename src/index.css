@@ -11,13 +11,24 @@ body {
   font-size: 1.2rem;
 }
 button {
-  margin: 5px;
+  margin: 10px;
+  border-radius: 3px;
 }
 
 @media only screen and (min-width: 768px) {
   html {
     font-size: 1.5rem;
   }
+  button {
+    padding: 0.5rem;
+    font: 1.5rem;
+    border-radius: 7px;
+  }
 }
 @media only screen and (min-width: 1024px) {
+  button {
+    padding: 0.8rem;
+    font: 1.5rem;
+    border-radius: 7px;
+  }
 }

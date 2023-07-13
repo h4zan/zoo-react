@@ -4,22 +4,36 @@ import { Loader } from '../../loaders/animalLoader';
 import errorImg from '../../assets/errorImg.jpg';
 import { feedAnimals } from '../../components/FeedAnimals/FeedAnimals';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { faDrumstickBite, faPaw } from '@fortawesome/free-solid-svg-icons';
 import './ViewAnimal.css';
+import { useState } from 'react';
+import { ErrorPage } from '../Error/ErrorPage';
+import { DateTime } from 'luxon';
 
 export const ViewAnimal = () => {
   const params = useParams();
   const { animals } = useLoaderData() as Loader;
-  const current = animals.find((animal) => animal.name === params.name);
+  const [current, setCurrent] = useState(
+    animals.find((animal) => animal.name === params.name)
+  );
 
-  const handleFeedClick = (): boolean => {
+  const handleFeedClick = () => {
     if (current) {
-      feedAnimals(current.name);
-      window.location.reload();
-      return true;
-    } else {
-      return false;
+      const lastFedTime = DateTime.fromISO(current.lastFed);
+      const currentTime = DateTime.now();
+
+      const isOverThreeHours =
+        currentTime.diff(lastFedTime, 'hours').hours >= 3;
+
+      if (!current.isFed || isOverThreeHours) {
+        feedAnimals(current.name);
+        const updatedAnimal = {
+          ...current,
+          isFed: true,
+          lastFed: currentTime.toISO() || '',
+        };
+        setCurrent(updatedAnimal);
+      }
     }
   };
 
@@ -27,10 +41,14 @@ export const ViewAnimal = () => {
     return (
       <>
         <Navbar></Navbar>
-        <p>Här finns det inge djur, försök igen!</p>
+        <ErrorPage></ErrorPage>
       </>
     );
   } else {
+    const lastFedTime = DateTime.fromISO(current.lastFed);
+    const currentTime = DateTime.now();
+    const isOverThreeHours = currentTime.diff(lastFedTime, 'hours').hours >= 3;
+
     return (
       <>
         <div className="animalPage">
@@ -51,6 +69,12 @@ export const ViewAnimal = () => {
             <p>{current.longDescription}</p>
             <p>Född: {current.yearOfBirth}</p>
             <p>Åt senast: {current.lastFed}</p>
+            {isOverThreeHours && (
+              <p className="feedNotification">
+                {current.name} behöver matas! Det har gått mer än 3 timmar sedan
+                senaste matningen.
+              </p>
+            )}
             {current && (
               <button onClick={handleFeedClick} disabled={current.isFed}>
                 {current.isFed ? (
@@ -64,8 +88,8 @@ export const ViewAnimal = () => {
                   </>
                 ) : (
                   <>
-                    Mata {current.name}
-                    <FontAwesomeIcon icon={faPaw} className="hungry" />
+                    Mata {current.name}{' '}
+                    <FontAwesomeIcon icon={faPaw} className="paw" />
                   </>
                 )}
               </button>
