@@ -4,6 +4,7 @@ import { Loader } from '../../loaders/animalLoader';
 import errorImg from '../../assets/errorImg.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDrumstickBite, faPaw } from '@fortawesome/free-solid-svg-icons';
+import { formatDate } from '../../components/FormatDate/FormatDate';
 
 import './Animals.css';
 import { DateTime } from 'luxon';
@@ -49,7 +50,7 @@ export const Animals = () => {
                 <div className="animalInfo">
                   <h3>{animal.name}</h3>
                   <p>{animal.shortDescription}</p>
-                  <p>Åt senast: {animal.lastFed}</p>
+                  <p>Åt senast: {formatDate(animal.lastFed)}</p>
                   {isOverFourHours ? (
                     <p className="feedNotification">
                       {animal.name} behöver matas!{' '}

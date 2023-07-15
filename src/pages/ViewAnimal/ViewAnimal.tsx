@@ -9,6 +9,7 @@ import './ViewAnimal.css';
 import { useState } from 'react';
 import { ErrorPage } from '../Error/ErrorPage';
 import { DateTime } from 'luxon';
+import { formatDate } from '../../components/FormatDate/FormatDate';
 
 export const ViewAnimal = () => {
   const params = useParams();
@@ -68,12 +69,9 @@ export const ViewAnimal = () => {
             <h3> {current.name}</h3>
             <p>{current.longDescription}</p>
             <p>Född: {current.yearOfBirth}</p>
-            <p>Åt senast: {current.lastFed}</p>
+            <p>Åt senast: {formatDate(current.lastFed)}</p>
             {isOverThreeHours && (
-              <p className="feedNotification">
-                {current.name} behöver matas! Det har gått mer än 3 timmar sedan
-                senaste matningen.
-              </p>
+              <p className="feedNotification">{current.name} behöver matas!</p>
             )}
             {current && (
               <button onClick={handleFeedClick} disabled={current.isFed}>

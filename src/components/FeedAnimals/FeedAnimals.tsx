@@ -1,4 +1,5 @@
 import { IAnimal } from '../../models/IAnimal';
+import { DateTime } from 'luxon';
 
 export const feedAnimals = (animalName: string) => {
   const lsAnimals = localStorage.getItem('theAnimals');
@@ -8,12 +9,8 @@ export const feedAnimals = (animalName: string) => {
     parseAnimals.forEach((animal) => {
       if (animal.name === animalName) {
         animal.isFed = true;
-        const currentDate = new Date().toLocaleString();
-        if (currentDate !== 'Invalid Date') {
-          animal.lastFed = currentDate;
-        } else {
-          animal.lastFed = '';
-        }
+        const currentDate = DateTime.local();
+        animal.lastFed = currentDate.toISO()!;
       }
     });
 
