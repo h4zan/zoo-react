@@ -34,6 +34,12 @@ export const ViewAnimal = () => {
           lastFed: currentTime.toISO() || '',
         };
         setCurrent(updatedAnimal);
+      } else {
+        const updatedAnimal = {
+          ...current,
+          isFed: false,
+        };
+        setCurrent(updatedAnimal);
       }
     }
   };
@@ -70,14 +76,16 @@ export const ViewAnimal = () => {
             <p>{current.longDescription}</p>
             <p>Född: {current.yearOfBirth}</p>
             <p>Åt senast: {formatDate(current.lastFed)}</p>
-            {isOverThreeHours && (
+            {isOverThreeHours && !current.isFed && (
               <p className="feedNotification">{current.name} behöver matas!</p>
             )}
             {current && (
-              <button onClick={handleFeedClick} disabled={current.isFed}>
-                {current.isFed ? (
+              <button
+                onClick={handleFeedClick}
+                disabled={current.isFed && !isOverThreeHours}
+              >
+                {current.isFed && !isOverThreeHours ? (
                   <>
-                    {' '}
                     {current.name} är Matad
                     <FontAwesomeIcon
                       icon={faDrumstickBite}
