@@ -1,2 +1,17 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/lARfQeTG)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11034267&assignment_repo_type=AssignmentRepo)
+# The Zoo
+
+![App Screenshot](https://i.postimg.cc/SR0t75F8/Sk-rmklipp.jpg)
+
+A Single Page Application (SPA) built using React with TypeScript. It simulates a zoo and allows users to interact with the animals by feeding them.
+
+The application fetches the list of animals from an external API and stores the data locally. Users can mark animals as fed, and the application tracks the time of feeding.
+
+For advanced functionality, the feeding status resets automatically after three hours. A notification system alerts users when an animal hasn't been fed for four hours.
+
+## Badges
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
